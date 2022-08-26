@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Remeritus\LaravelDeveloperDashboardConnector\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelDeveloperDashboardConnectorCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-developer-dashboard-connector';
 
     public $description = 'My command';
 
