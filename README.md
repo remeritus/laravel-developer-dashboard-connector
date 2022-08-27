@@ -1,14 +1,14 @@
 
 [<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
 
-# Package to connect your existing Laravel application with Laravel Developer Dashboard.
+# Laravel Developer Dashboard Connector
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/remeritus/laravel-developer-dashboard-connector.svg?style=flat-square)](https://packagist.org/packages/remeritus/laravel-developer-dashboard-connector)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/remeritus/laravel-developer-dashboard-connector/run-tests?label=tests)](https://github.com/remeritus/laravel-developer-dashboard-connector/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/remeritus/laravel-developer-dashboard-connector/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/remeritus/laravel-developer-dashboard-connector/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/remeritus/laravel-developer-dashboard-connector.svg?style=flat-square)](https://packagist.org/packages/remeritus/laravel-developer-dashboard-connector)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Package to connect your existing Laravel application with Laravel Developer Dashboard.
 
 ## Support us
 

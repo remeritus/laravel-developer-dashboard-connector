@@ -4,7 +4,6 @@ namespace Remeritus\LaravelDeveloperDashboardConnector;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Remeritus\LaravelDeveloperDashboardConnector\Commands\LaravelDeveloperDashboardConnectorCommand;
 
 class LaravelDeveloperDashboardConnectorServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +17,6 @@ class LaravelDeveloperDashboardConnectorServiceProvider extends PackageServicePr
         $package
             ->name('laravel-developer-dashboard-connector')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-developer-dashboard-connector_table')
-            ->hasCommand(LaravelDeveloperDashboardConnectorCommand::class);
+            ->hasRoute('api');
     }
 }
