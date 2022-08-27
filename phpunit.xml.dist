@@ -25,6 +25,7 @@
     </testsuites>
     <php>
         <env name="DEVELOPER_DASHBOARD_TOKEN" value="CorrectToken" />
+        <env name="APP_DEBUG" value="TRUE" />
     </php>
     <coverage>
         <include>

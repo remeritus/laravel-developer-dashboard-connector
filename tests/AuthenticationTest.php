@@ -5,8 +5,6 @@ use Illuminate\Http\Response;
 it('will fail without token', function () {
     $response = $this->get('ldd/connect');
 
-    dd($response);
-
     expect($response->getStatusCode())
         ->toBe(Response::HTTP_UNAUTHORIZED);
 });
