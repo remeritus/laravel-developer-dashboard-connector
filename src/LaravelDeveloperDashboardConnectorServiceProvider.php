@@ -2,7 +2,6 @@
 
 namespace Remeritus\LaravelDeveloperDashboardConnector;
 
-use Remeritus\LaravelDeveloperDashboardConnector\Commands\LaravelDeveloperDashboardConnectorCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

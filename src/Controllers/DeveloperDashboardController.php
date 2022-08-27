@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Remeritus\LaravelDeveloperDashboardConnector\Controllers;
 
 use Illuminate\Auth\Access\Response;
@@ -10,9 +9,9 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class DeveloperDashboardController
 {
-    public function connect(Request $request) : string
+    public function connect(Request $request): string
     {
-        if($this->authorize($request)->denied()){
+        if ($this->authorize($request)->denied()) {
             throw new HttpException(HttpResponse::HTTP_UNAUTHORIZED);
         }
 
@@ -24,8 +23,8 @@ class DeveloperDashboardController
         return [
             'data' => [
                 'Laravel Version' => app()->version(),
-                'PHP Version'     => phpversion(),
-            ]
+                'PHP Version' => phpversion(),
+            ],
         ];
     }
 
@@ -33,9 +32,10 @@ class DeveloperDashboardController
     {
         $bearerToken = $request->bearerToken();
 
-        if ($bearerToken != config('developer-dashboard-connector.developer-dashboard.token')){
+        if ($bearerToken != config('developer-dashboard-connector.developer-dashboard.token')) {
             return Response::denyWithStatus(403);
         }
+
         return Response::allow();
     }
 }
