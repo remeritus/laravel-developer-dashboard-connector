@@ -3,13 +3,16 @@
 use Illuminate\Http\Response;
 
 it('will fail without token', function () {
+    $this->withoutExceptionHandling();
+
     $response = $this->get('ldd/connect');
-    var_dump($response);
     expect($response->getStatusCode())
         ->toBe(Response::HTTP_UNAUTHORIZED);
 });
 
 it('will fail with wrong token', function () {
+    $this->withoutExceptionHandling();
+
     $response = $this->withToken('WrongToken')
         ->get('ldd/connect');
 
@@ -18,6 +21,8 @@ it('will fail with wrong token', function () {
 });
 
 it('will succeed with correct token', function () {
+    $this->withoutExceptionHandling();
+    
     $response = $this->withToken('CorrectToken')
         ->get('ldd/connect');
 
