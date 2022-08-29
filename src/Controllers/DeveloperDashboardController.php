@@ -8,13 +8,10 @@ use Illuminate\Http\Request;
 
 class DeveloperDashboardController
 {
-    /**
-     * @throws AuthorizationException
-     */
     public function connect(Request $request): string
     {
         if ($this->authorize($request)->denied()) {
-            throw new AuthorizationException(null,403);
+            throw new AuthorizationException();
         }
 
         return json_encode($this->getLaravelData());
