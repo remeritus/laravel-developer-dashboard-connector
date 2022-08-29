@@ -11,7 +11,7 @@ class DeveloperDashboardController
     public function connect(Request $request): string
     {
         if ($this->authorize($request)->denied()) {
-            throw new AuthorizationException();
+            return Response::deny(null, 403);
         }
 
         return json_encode($this->getLaravelData());
