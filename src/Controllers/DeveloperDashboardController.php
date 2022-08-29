@@ -2,17 +2,19 @@
 
 namespace Remeritus\LaravelDeveloperDashboardConnector\Controllers;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response as HttpResponse;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class DeveloperDashboardController
 {
+    /**
+     * @throws AuthorizationException
+     */
     public function connect(Request $request): string
     {
         if ($this->authorize($request)->denied()) {
-            throw new HttpException(HttpResponse::HTTP_UNAUTHORIZED);
+            throw new AuthorizationException(null,403);
         }
 
         return json_encode($this->getLaravelData());
