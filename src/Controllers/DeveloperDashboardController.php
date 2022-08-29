@@ -11,7 +11,7 @@ class DeveloperDashboardController
     public function connect(Request $request): string
     {
         if ($this->authorize($request)->denied()) {
-            return new \Illuminate\Http\Response('Token mismatch.', 401);
+            return \response()->setStatusCode(401, 'Token mismatch');
         }
 
         return json_encode($this->getLaravelData());

@@ -1,13 +1,15 @@
 <?php
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 it('will fail without token', function () {
     $this->withoutExceptionHandling();
 
     $response = $this->get('ldd/connect');
     dd($response);
-    expect($response->getStatusCode())
+    expect($response->)
         ->toBe(Response::HTTP_UNAUTHORIZED);
 });
 
