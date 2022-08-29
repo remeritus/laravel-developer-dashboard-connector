@@ -22,7 +22,7 @@ it('will fail with wrong token', function () {
 
 it('will succeed with correct token', function () {
     $this->withoutExceptionHandling();
-    
+
     $response = $this->withToken('CorrectToken')
         ->get('ldd/connect');
 

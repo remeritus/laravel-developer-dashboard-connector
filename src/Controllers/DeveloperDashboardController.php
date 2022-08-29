@@ -33,7 +33,7 @@ class DeveloperDashboardController
         $bearerToken = $request->bearerToken();
 
         if ($bearerToken != config('developer-dashboard-connector.developer-dashboard.token')) {
-            return Response::denyWithStatus(403);
+            return Response::deny(null, 403);
         }
 
         return Response::allow();
