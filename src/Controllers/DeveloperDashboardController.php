@@ -2,7 +2,6 @@
 
 namespace Remeritus\LaravelDeveloperDashboardConnector\Controllers;
 
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
 
@@ -11,8 +10,7 @@ class DeveloperDashboardController
     public function connect(Request $request): string
     {
         if ($this->authorize($request)->denied()) {
-            // return \response()->json(['message' => 'Token mismatch.'], 401);
-            abort(401, 'Token mismatch.');
+            \response('Token mismatch.', '401');
         }
 
         return json_encode($this->getLaravelData());
