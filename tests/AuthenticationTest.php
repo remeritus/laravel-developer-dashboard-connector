@@ -6,6 +6,7 @@ it('will fail without token', function () {
     $this->withoutExceptionHandling();
 
     $response = $this->get('ldd/connect');
+
     expect($response->getContent())
         ->toContain('Token mismatch.');
 });
@@ -16,8 +17,8 @@ it('will fail with wrong token', function () {
     $response = $this->withToken('WrongToken')
         ->get('ldd/connect');
 
-    expect($response->getStatusCode())
-        ->toBe(Response::HTTP_UNAUTHORIZED);
+    expect($response->getContent())
+        ->toContain('Token mismatch.');
 });
 
 it('will succeed with correct token', function () {
