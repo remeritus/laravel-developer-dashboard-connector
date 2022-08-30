@@ -6,9 +6,8 @@ it('will fail without token', function () {
     $this->withoutExceptionHandling();
 
     $response = $this->get('ldd/connect');
-    dd($response);
-    expect($response)
-        ->toBe(Response::HTTP_UNAUTHORIZED);
+    expect($response->getContent())
+        ->toContain('Token mismatch.');
 });
 
 it('will fail with wrong token', function () {
