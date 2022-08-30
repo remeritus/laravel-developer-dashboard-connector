@@ -2,16 +2,14 @@
 
 namespace Remeritus\LaravelDeveloperDashboardConnector\Controllers;
 
-use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
 
 class DeveloperDashboardController
 {
+
     public function connect(Request $request): string
     {
-        if ($this->authorize($request)->denied()) {
-            return \Illuminate\Support\Facades\Response::make('Token mismatch.', 401);
-        }
+        $this->authorize($request);
 
         return json_encode($this->getLaravelData());
     }
@@ -26,14 +24,10 @@ class DeveloperDashboardController
         ];
     }
 
-    private function authorize(Request $request): Response
+    private function authorize(Request $request): void
     {
-        $bearerToken = $request->bearerToken();
-
-        if ($bearerToken != config('developer-dashboard-connector.developer-dashboard.token')) {
-            return Response::deny(null, 403);
+        if ($request->bearerToken() != config('developer-dashboard-connector.developer-dashboard.token')) {
+            abort(401, 'Invalid API Token.');
         }
-
-        return Response::allow();
     }
 }

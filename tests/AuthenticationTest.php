@@ -3,30 +3,27 @@
 use Illuminate\Http\Response;
 
 it('will fail without token', function () {
-    $this->withoutExceptionHandling();
 
-    $response = $this->get('ldd/connect');
+    $response = $this->getJson('ldd/connect');
 
-    expect($response->getContent())
-        ->toContain('Token mismatch.');
+    expect($response->getStatusCode())
+        ->toBe(Response::HTTP_UNAUTHORIZED);
 });
 
 it('will fail with wrong token', function () {
-    $this->withoutExceptionHandling();
 
     $response = $this->withToken('WrongToken')
         ->get('ldd/connect');
 
-    expect($response->getContent())
-        ->toContain('Token mismatch.');
+    expect($response->getStatusCode())
+        ->toBe(Response::HTTP_UNAUTHORIZED);
 });
 
 it('will succeed with correct token', function () {
-    $this->withoutExceptionHandling();
 
     $response = $this->withToken('CorrectToken')
         ->get('ldd/connect');
 
-    expect($response->getStatusCode())
-        ->toBe(Response::HTTP_OK);
+    expect($response->getStatusCode())->toBe(Response::HTTP_OK)
+        ->and($response->getContent())->toContain('Laravel Version');
 });
