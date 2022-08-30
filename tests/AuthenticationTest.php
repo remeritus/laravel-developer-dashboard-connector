@@ -6,7 +6,8 @@ it('will fail without token', function () {
     $this->withoutExceptionHandling();
 
     $response = $this->get('ldd/connect');
-    expect($response->getStatusCode())
+    dd($response);
+    expect($response)
         ->toBe(Response::HTTP_UNAUTHORIZED);
 });
 
